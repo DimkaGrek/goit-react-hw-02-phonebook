@@ -18,7 +18,12 @@ export default class App extends Component {
   };
 
   handlerFormSubmit = ({ name, phone }) => {
-    if (this.state.contacts.find(contact => contact.name === name)) {
+    const searchName = name.toLowerCase();
+    if (
+      this.state.contacts.find(
+        contact => contact.name.toLowerCase() === searchName
+      )
+    ) {
       alert(`${name} is already in contacts.`);
       return;
     }
